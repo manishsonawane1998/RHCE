@@ -1,9 +1,4 @@
 [root@system2 ~]# history
-    1  cat >> /etc/hosts
-    2  hostname -I
-    3  hostnamectl set-hostname system2.example.com
-    4  exit
-    5  yum install vim wget firewalld
     6  sestatus
     7  firewall-cmd --permanent --add-rich-rule 'rule family="ipv4" source address="192.168.12.0/24" service name="ssh" reject'
     8  systemctl restart firewalld
