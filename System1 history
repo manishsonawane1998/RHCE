@@ -1,11 +1,4 @@
-7  vim /etc/yum.repos.d/rhce.repo
-    8  yum clean all
-    9  yum repolist
-   10  rm /etc/yum.repos.d/rhce.repo
-   11  yum clean all
-   12  yum repolist
-   13  sestaus
-   14  sestatus
+  sestatus
    15  systemctl restart firewalld
    16  systemctl enable firewalld
    17  man firewall-richlanguage
