@@ -367,17 +367,18 @@
   464  firewall-cmd --permanent --add-port=5343/tcp
   465  firewall-cmd --reload
   466  vim /etc/httpd/conf/httpd.conf 
-  467  man semanage-port
-  468  semanage port -a -t http_port_t -p tcp 5343
-  469  systemctl restart httpd
-  470  systemctl enable httpd
-  471  firewall-cmd --reload
-  472  history 
-  473  history  | tail -13
-  474  history  | tail -15
-  475  sh /root/condition Linux
-  476  sh /root/condition linux
-  477  vim /etc/bashrc
-  478  reboot
-  479  qstat
-  480  history
+  man semanage-port
+  semamage port -a -t http_port_t -p tcp 5343
+  systemctl restart httpd
+  systemctl enable httpd
+  fiwll-cmd --reload
+  history 
+  history  | tail -13
+  history  | tail -15
+  sh /root/condition Linux
+  sh /root/condition linux
+  vim /etc/bashrc
+  reboot
+  qstat
+  history
+
