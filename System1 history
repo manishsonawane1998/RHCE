@@ -1,0 +1,474 @@
+7  vim /etc/yum.repos.d/rhce.repo
+    8  yum clean all
+    9  yum repolist
+   10  rm /etc/yum.repos.d/rhce.repo
+   11  yum clean all
+   12  yum repolist
+   13  sestaus
+   14  sestatus
+   15  systemctl restart firewalld
+   16  systemctl enable firewalld
+   17  man firewall-richlanguage
+   18  man firewalld-richlanguage
+   19  man firewalld.richlanguage
+   20  firewall-cmd --permanent --add-rich-rule 'rule family="ipv4" source address="192.168.12.0/24" service name="ssh" reject'
+   21  firewall-cmd --reload
+   22  firewall-cmd --list-all
+   23  yum install nfs-utils
+   24  yum install nfs-utils -y
+   25  mkdir /nfsdata
+   26  vim /etc/fstab 
+   27  mount -av
+   28  df -hT
+   29  mount -av
+   30  vim /etc/fstab 
+   31  df -h
+   32  vim /etc/fstab 
+   33  mount -av
+   34  df -h
+   35  mount -a
+   36  df -h
+   37  mount -a
+   38  df -h
+   39  umount /nfsdata
+   40  mount -a
+   41  vim /etc/fstab 
+   42  mount -av
+   43  df -hT
+   44  vim /etc/exports
+   45  mkdir /project/nasa -p
+   46  wget -O /etc/krb5.keytab fjaddd
+   47  vim /etc/sysconfig/nfs
+   48  systemctl stop nfs-server
+   49  systemctl restart nfs-secure-server
+   50  exportfs -t
+   51  exportfs -r
+   52  systemctl status -l nfs-secure-server
+   53  systemctl status  nfs-secure-server
+   54  systemctl restart nfs-secure-server
+   55  rpm -q nfs-secure-server
+   56  rpm -q nfs-utils
+   57  systemctl restart nfs-secure
+   58  systemctl status nfs-secure
+   59  firewall-cmd --permanent --add-service=nfs
+   60  firewall-cmd --permanent --add-service=rpc-bind
+   61  firewall-cmd --permanent --add-service=mountd
+   62  firewall-cmd --reload
+   63  vim /etc/postfix/main.cf 
+   64  systemctl restart postfix.service
+   65  systemctl enable postfix.service
+   66  mail -s "testmail" student@system2.example
+   67  yum install mailx -y
+   68  mail -s "testmail" student@system2.example
+   69  yum install samba samba-client
+   70  rpm -q  samba samba-client
+   71  mkdir /concert
+   72  useradd samual
+   73  smbpasswd -a samual
+   74  vim /etc/samba/smb.conf
+   75  man semanage-fcontext
+   76  semanage fcontext -a -t samba_share_t "/concert(/.*)?"
+   77  restorecon -Rv /concert/
+   78  vim /etc/samba/smb.conf
+   79  mkdir /dockyard
+   80  semanage fcontext -a -t samba_share_t "/dockyard/(/.*)?"
+   81  restorecon -Rv /concert/
+   82  restorecon -Rv /dockyard/
+   83  useradd mitchel
+   84  useradd catherine
+   85  smbpasswd -a mitchel
+   86  smbpasswd -a catherine
+   87  vim /etc/samba/smb.conf
+   88  testparm -t
+   89  setfacl -m u:mitchel:rw- /dockyard/
+   90  setfacl -m u:catherine:r-x /dockyard/
+   91  systemctl restart smb nmb
+   92  firewall-cmd --permanent --add-service=samba
+   93  firewall-cmd --reload
+   94  getfacl -a | grep samba
+   95  getsebool -a | grep samba
+   96  setsebool -P samba_export_all_ro on
+   97  setsebool -P samba_export_all_rw on
+   98  getsebool -a | grep samba
+   99  systemctl restart smb nmb
+  100  firewall-cmd --reload
+  101  yum install httpd
+  102  vim /var/www/index.html
+  103  cp /usr/share/doc/httpd-2.4.6/httpd-vhosts.conf /etc/httpd/conf.d/webhost.conf
+  104  cd /etc/httpd/conf.d/
+  105  ls
+  106  vim webhost.conf 
+  107  httpd -t
+  108  vim webhost.conf 
+  109  httpd -t
+  110  vim /etc/hots
+  111  vim /etc/hosts
+  112  systemctl restart httpd
+  113  systemctl enable httpd
+  114  firewall-cmd --permanent --add-service=http
+  115  firewall-cmd --reload
+  116  curl wwwX.example.com
+  117  curl wwwX.example.com:80
+  118  curl wwwX.example.com
+  119  vim /etc/httpd/conf.d/
+  120  ls
+  121  ls /var/www/html/
+  122  ls
+  123  ls /var/www/html/
+  124  vim /var/www/html/index.html
+  125  ls /var/www/html/
+  126  systemctl restart httpd
+  127  curl wwwX.example.com
+  128  mkdir /var/www/practice
+  129  restorecon -Rv /var/www/practice
+  130  vim /var/www/practice
+  131  vim /var/www/practice/index.html
+  132  ls /var/www/practice/
+  133  cp webhost.conf virtualhost.conf
+  134  vim virtualhost.conf 
+  135  httpd -t
+  136  vim /etc/hosts
+  137  cp webhost.conf virtualhost.conf
+  138  vim /etc/hosts
+  139  vim virtualhost.conf 
+  140  systemctl restart httpd
+  141  curl system1.example.com
+  142  vim virtualhost.conf 
+  143  vim /etc/hosts
+  144  systemctl restart httpd
+  145  curl systemx.example.com
+  146  vim /etc/hosts
+  147  vim virtualhost.conf 
+  148  systemctl restart httpd
+  149  curl systemx.example.com
+  150  vim virtualhost.conf 
+  151  vim /etc/hosts
+  152  systemctl restart httpd
+  153  curl systemx.example.com
+  154  wq
+  155  curl systemx.example.com
+  156  vim virtualhost.conf 
+  157  vim /etc/hosts
+  158  vim virtualhost.conf 
+  159  systemctl restart httpd
+  160  curl systemx.example.com
+  161  rm /var/www/index.html 
+  162  ls /var/www/index.html 
+  163  ls /var/www/html/
+  164  ls /var/www/practice/
+  165  rm /var/www/cgi-bin/
+  166  rm -rv /var/www/cgi-bin/
+  167  systemctl restart httpd
+  168  curl systemx.example.com
+  169  vim virtualhost.conf 
+  170  systemctl restart httpd
+  171  curl systemx.example.com
+  172  systemctl restart httpd
+  173  mkdir /var/www/html/notes
+  174  touch /var/www/html/notes/abc{1..20}
+  175  rm /var/www/html/notes/abc{1..20}
+  176  cat > /var/www/html/notes/index.html
+  177  rm /var/www/html/notes/index.html 
+  178  touch /var/www/html/notes/abc{1..20}
+  179  cp webhost.conf wepagemodify
+  180  mv wepagemodify webpagemodify.conf
+  181  vim webpagemodify.conf 
+  182  httpd =t
+  183  httpd -t
+  184  systemctl restart httpd
+  185  curl wwwX.example.com
+  186  curl wwwX.example.com/notes
+  187  yum install telnet
+  188  yum install telnet -y
+  189  telnet wwwX.example.com/notes 80
+  190  vim webpagemodify.conf 
+  191  systemctl restart httpd
+  192  telnet wwwX.example.com/notes 80
+  193  cat /etc/hosts
+  194  vim webpagemodify.conf 
+  195  systemctl restart httpd
+  196  telnet wwwX.example.com/notes 80
+  197  vim /etc/hosts
+  198  telnet wwwX.example.com/notes 80
+  199  curl wwwX.example.com/notes
+  200  vim webpagemodify.conf 
+  201  VIM /etc/hosts
+  202  vim /etc/hosts
+  203  rm webpagemodify.conf 
+  204  history
+  205  systemctl restart httpd
+  206  cat /etc/hosts
+  207  openssl genrsa -out serverx.key 2048
+  208  openssl req -new -key serverx.key -out example-ca.crt
+  209  ls
+  210  openssl x509 -req -in example-ca.crt -signkey serverx.key -days 365 -out serverx.crt
+  211  ls
+  212  mv serverx.key /etc/pki/tls/private/
+  213  mv serverx.crt /etc/pki/tls/certs/
+  214  mv example-ca.crt /etc/pki/tls/certs/
+  215  yum install mod_ssl
+  216  cp
+  217  ls
+  218  cp ssl.conf secureweb.conf
+  219  vim secureweb.conf 
+  220  cat /etc/hots
+  221  cat /etc/hosts
+  222  mv /etc/pki/tls/certs/serverx.crt systemx.crt
+  223  mv /etc/pki/tls/private/serverx.key systemx.key
+  224  vim secureweb.conf 
+  225  httpd -t
+  226  vim secureweb.conf 
+  227  cd ..
+  228  vim conf/httpd.conf 
+  229  vim conf.d/
+  230  cd conf.d/
+  231  httpd -t
+  232  vim conf.d/
+  233  vim secureweb.conf 
+  234  httpd -t
+  235  cat /etc/hosts
+  236  vim /etc/hosts
+  237  httpd -t
+  238  vim secureweb.conf 
+  239  httpd -t
+  240  cat /etc/pki/tls/certs/systemx.crt
+  241  cd /etc/pki/tls/certs/
+  242  ls
+  243  cd ..
+  244  cd private/
+  245  ls
+  246  cd
+  247  ls
+  248  cd /etc/httpd/conf.d/
+  249  ;s
+  250  ls
+  251  mv systemx.crt /etc/pki/tls/certs/
+  252  mv systemx.key /etc/pki/tls/private/
+  253  httpd -t
+  254  man semange-port
+  255  man semange.port
+  256  man semanage.port
+  257  man semanage-port
+  258  semanage port -a -t http_port_t -p tcp 443
+  259  firewall-cmd --add-service=https
+  260  firewall-cmd --add-service=https --permanent
+  261  firewall-cmd --reload
+  262  systemctl restart httpd
+  263  journalctl -xe
+  264  systemctl restart httpd
+  265  systemctl status httpd.service
+  266  systemctl status httpd.service -l
+  267  vim secureweb.conf 
+  268  systemctl restart httpd
+  269  cd ..
+  270  vim conf/httpd.conf 
+  271  systemctl restart httpd
+  272  vim conf/httpd.conf 
+  273  cd conf.d/
+  274  vim secureweb.conf 
+  275  systemctl restart httpd
+  276  systemctl status httpd.service -l
+  277  vim secureweb.conf 
+  278  systemctl restart httpd
+  279  vim secureweb.conf 
+  280  rm ssl.conf 
+  281  systemctl restart httpd
+  282  vim secureweb.conf 
+  283  httpd -t
+  284  systemctl restart httpd
+  285  firewall-cmd --list-all
+  286  ls
+  287  https://systemx.example.com
+  288  https://systemx.example.com:443
+  289  curl https://systemx.example.com:443
+  290  curl https://systemx.example.com
+  291  openssl genrsa -out systemx.key 2048
+  292  openssl req -new -key systemx.key -out example-ca.crt
+  293  ls
+  294  openssl x509 -req -in example-ca.crt -signkey systemx.key -days 365 -out systemx.crt
+  295  rm /etc/pki/tls/certs/systemx.crt
+  296  rm /etc/pki/tls/certs/example-ca.crt 
+  297  rm /etc/pki/tls/private/systemx.key 
+  298  mv systemx.crt /etc/pki/tls/certs/
+  299  mv example-ca.crt /etc/pki/tls/certs/
+  300  mv systemx.key /etc/pki/tls/private/
+  301  httpd -t
+  302  systemctl restart httpd
+  303  curl https://systemx.example.com
+  304  curl https://systemx.example.com:443
+  305  rm welcome.conf 
+  306  systemctl restart httpd
+  307  vim secureweb.conf 
+  308  systemctl restart httpd
+  309  curl https://systemx.example.com:443
+  310  cat /etc/hosts
+  311  curl https://systemx.example.com:443
+  312  vim secureweb.conf 
+  313  systemctl restart httpd
+  314  firewall-cmd --list-all
+  315  vim secureweb.conf 
+  316  yum install mod_wsgi
+  317  cp webhost.conf wsgi.conf
+  318  vim wsgi.conf 
+  319  cd ..
+  320  vim conf/httpd.conf 
+  321  man semanage-port
+  322  semanage port -a -t http_port_t -p tcp 8998
+  323  mkdir /var/www/dynamic
+  324  cd /var/www/dynamic
+  325  restorecon -Rv
+  326  httpd -t
+  327  cd /etc/httpd/conf.d/
+  328  ls
+  329  vim wsgi.conf 
+  330  cd /etc/httpd/conf.d/
+  331  vim wsgi.conf 
+  332  vim /var/www/dynamic/webapp.wsgi
+  333  httpd -t
+  334  systemctl restart httpd
+  335  cat /etc/hosts
+  336  vim wsgi.conf 
+  337  httpd -t
+  338  cat /etc/hosts
+  339  ls
+  340  cat webhost.conf 
+  341  vim wsgi.conf 
+  342  httpd -t
+  343  cd /var/www/dyanmic
+  344  vim wsgi.conf 
+  345  httpd -t
+  346  vim wsgi.conf 
+  347  httpd -t
+  348  vim secureweb.conf 
+  349  httpd -t
+  350  systemctl restart httpd
+  351  httpd -t
+  352  firewall-cmd --permanent --add-port=8998/tcp
+  353  firewall-cmd --realod
+  354  firewall-cmd --reload
+  355  firewall-cmd --list-all
+  356  curl wwwx.example.com:8998
+  357  history
+  358  cd
+  359  lsblk
+  360  fdisk /dev/xvdb
+  361  lsblk
+  362  yum install lvm2
+  363  pvcreate /dev/xvdb1
+  364  vgcreate -n myvg /dev/xvdb1
+  365  vgcreate  myvg /dev/xvdb1
+  366  mylv -n mylv -L 2G myvg
+  367  lvcreate -n mylv -L 2G myvg
+  368  lsblk
+  369  lvcreate -n mylv -L 1.9G myvg
+  370  lsblk
+  371  lvs
+  372  lvremove mylv
+  373  lvremove /dev/myvg/mylv
+  374  vgs
+  375  pvs
+  376  vgremove /dev/myvg
+  377  pvremove /dev/xvdb1
+  378  fdisk /dev/xvda
+  379  lsblk
+  380  fdisk /dev/xvdb
+  381  lsblk
+  382  fdisk /dev/xvdb
+  383  pvcreate /dev/xvdb1
+  384  vgcreate myvg /dev/xvdb1
+  385  lvcreate -n mylv -L +2G myvg
+  386  lvs
+  387  yum install targetcli
+  388  targetcli 
+  389  firewall-cmd --permanent --add-service=iscsi
+  390  firewall-cmd --permanent --add-port=3260
+  391  firewall-cmd --permanent --add-port=3260/tcp
+  392  firewall-cmd --reload
+  393  ip a
+  394  vim /root/condition
+  395  ./root/condition Linux
+  396  sh /root/condition Linux
+  397  sh /root/condition Fedora
+  398  sh /root/condition df
+  399  sh /root/condition 
+  400  vim /root/condition
+  401  sh /root/condition 
+  402  vim /root/condition
+  403  sh /root/condition 
+  404  vim /root/condition
+  405  sh /root/condition 
+  406  sh /root/condition Linux
+  407  sh /root/condition Fedora
+  408  sh /root/condition Fedsdsf
+  409  vim /root/condition
+  410  cp /root/condition /root/usersauto
+  411  vim /root/usersauto
+  412  vim testfile
+  413  vim /root/usersauto
+  414  vim testfile
+  415  vim /root/usersauto
+  416  sh /root/usersauto
+  417  sh /root/usersauto hfvh
+  418  sh /root/usersauto testfile 
+  419  cat /etc/passwd | tail -4
+  420  vim /root/usersauto
+  421  vim testfile
+  422  sh /root/usersauto testfile 
+  423  vim /root/usersauto
+  424  sh /root/usersauto testfile 
+  425  vim /root/usersauto
+  426  sh /root/usersauto testfile 
+  427  vim /root/usersauto
+  428  sh /root/usersauto testfile 
+  429  man useradd
+  430  cat /etc/passwd 
+  431  vim /etc/passwd 
+  432  su -  mayur
+  433  su - ruchika
+  434  vim /etc/passwd 
+  435  su -  mayur
+  436  vim /etc/passwd 
+  437  su -  mayur
+  438  vim /etc/passwd 
+  439  su -  mayur
+  440  vim /root/usersauto 
+  441  yum groupinstall mariadb
+  442  rpm -q mariadb
+  443  systemctl restart mysql
+  444  systemctl restart mariadb
+  445  systemctl enable mariadb
+  446  mysql_secure_installation 
+  447  y
+  448  mysql -uroot -predhat
+  449  mysqldump -uroot -predhat engineering > mariadb.dump
+  450  mysql -uroot -predhat
+  451  ls
+  452  mysql -uroot -predhat
+  453  mysql -uroot -predhat engineering < mariadb.dump 
+  454  mysql -uroot -predhat engineering
+  455  mysql -uchristopher -ppassword
+  456  mysql -utom -pfedora
+  457  mysql -uroot -predhat
+  458  exit
+  459  man firewalld.richlanguage
+  460  firewall-cmd --permanent --add-rich-rule "rule family="ipv4" source address="172.31.86.209/20" forward-port to-port="5343" protocol="tcp" port="80""
+  461  firewall-cmd --reload
+  462  firewall-cmd --list-al
+  463  firewall-cmd --list-all
+  464  firewall-cmd --permanent --add-port=5343/tcp
+  465  firewall-cmd --reload
+  466  vim /etc/httpd/conf/httpd.conf 
+  467  man semanage-port
+  468  semanage port -a -t http_port_t -p tcp 5343
+  469  systemctl restart httpd
+  470  systemctl enable httpd
+  471  firewall-cmd --reload
+  472  history 
+  473  history  | tail -13
+  474  history  | tail -15
+  475  sh /root/condition Linux
+  476  sh /root/condition linux
+  477  vim /etc/bashrc
+  478  reboot
+  479  qstat
+  480  history
