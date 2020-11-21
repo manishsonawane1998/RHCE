@@ -1,0 +1,124 @@
+[root@system2 ~]# history
+    1  cat >> /etc/hosts
+    2  hostname -I
+    3  hostnamectl set-hostname system2.example.com
+    4  exit
+    5  yum install vim wget firewalld
+    6  sestatus
+    7  firewall-cmd --permanent --add-rich-rule 'rule family="ipv4" source address="192.168.12.0/24" service name="ssh" reject'
+    8  systemctl restart firewalld
+    9  firewall-cmd --permanent --add-rich-rule 'rule family="ipv4" source address="192.168.12.0/24" service name="ssh" reject'
+   10  firewall-cmd --reload
+   11  yum install nfs-utils
+   12  mkdir /tmp/mynfs
+   13  vim /etc/exports
+   14  exportfs -r
+   15  systemctl restart nfs-server
+   16  systemctl enable nfs-server
+   17  firewall-cmd --add-service=nf
+   18  firewall-cmd --add-service=nfs
+   19  firewall-cmd --add-service=nfs --permananet
+   20  firewall-cmd --
+   21  firewall-cmd --permanent --add-service=rpc-bind
+   22  firewall-cmd --permanent --add-service=mountd
+   23  firewall-cmd --reload
+   24  systemctl restart nfs-server
+   25  s /tmp/
+   26  ls /tmp/
+   27  mkdir /tmp/mynfs
+   28  ls /tmp/
+   29  systemctl restart nfs-server
+   30  chmod 777 /tmp/mynfs/
+   31  systemctl restart nfs-server
+   32  firewall-cmd --reload
+   33  systemctl restart nfs
+   34  firewall-cmd --reload
+   35  exportfs -r
+   36  vim /etc/exports
+   37  exportfs -r
+   38  ls -z /tmp/mynfs/
+   39  ls -Zd /tmp/mynfs/
+   40  cd /tmp/mynfs/
+   41  restorecon -Rv
+   42  systemctl restart nfs
+   43  exportfs -r
+   44  rpm -q nfs
+   45  rpm -q nfs-utils
+   46  systemctl restart nfs
+   47  systemctl restart nfs-server
+   48  systemctl status nfs-server
+   49  systemctl status nfs-server -l
+   50  vim /etc/exports
+   51  mkdir /manish
+   52  vim /etc/exports
+   53  exportfs -r
+   54  systemctl restart nfs-server
+   55  ls tmp
+   56  ls /tmp
+   57  ls /
+   58  ls -ll
+   59  ls -ll /
+   60  ip a
+   61  mkdir /mnt/akon -p
+   62  cd
+   63  yum install samba-client cifs-utils -y
+   64  rpm -q samba-client cifs-utils 
+   65  vim /etc/fstab 
+   66  vim /root/sec
+   67  mount -av
+   68  df -hT
+   69  cat /etc/fstab 
+   70  useradd catherine 
+   71  su - catherine
+   72  cat /etc/hosts
+   73  ip a
+   74  vim /etc/hosts
+   75  https://systemx.example.com:443
+   76  cur; https://systemx.example.com:4
+   77  cur; https://systemx.example.com:443
+   78  curl https://systemx.example.com:443
+   79  curl https://systemx.example.com
+   80  curl https://systemx.example.com:443
+   81  cat /etc/hosts
+   82  cd
+   83  yum install iscsi_intiator_ulitils
+   84  yum install iscsi-intiator-ulitils
+   85  yum install iscsi-initiator-ulitils
+   86  yum install iscsi-initiator-utili
+   87  yum install iscsi-initiator-utilis
+   88  yum install iscsi-initiator-utils
+   89  vim /etc/iscsi/initiatorname.iscsi 
+   90  cat /etc/iscsi/initiatorname.iscsi 
+   91  cat /etc/hosts
+   92  man iscsiadm 
+   93  iscsiadm --mode discoverydb --type sendtargets --portal 172.31.93.145 --discover
+   94  man iscsiadm 
+   95  iscsiadm --mode node --targetname iqn.2017-18.com.example.networkx:system2 --portal 172.31.93.145:3260 --login
+   96  lsblk
+   97  fdisk /dev/sda 
+   98  partprobe
+   99  mkfs.ext4 /dev/sda1
+  100  blkid
+  101  vim /etc/fstab 
+  102  mkdir /shareddisk
+  103  mount -a
+  104  mkdir /sharedisk
+  105  mount -a
+  106  df -hT
+  107  vim /etc/fstab 
+  108  mount -a
+  109  df -hT
+  110  umount /sharedisk
+  111  iscsiadm --mode node --targetname iqn.2017-18.com.example.networkx:system2 --portal 172.31.93.145:3260 --logout
+  112  lsblk
+  113  reboot
+  114  lsblk
+  115  cat /etc/hosts
+  116  curl wwwX.example.com
+  117  ip a
+  118  curl wwwX.example.com:5343
+  119  curl serverX.example.com:5343
+  120  curl systemX.example.com:5343
+  121  curl wsgi.example.com:5343
+  122  curl wwwX.example.com:5343
+  123  history
