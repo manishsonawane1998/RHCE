@@ -1,0 +1,71 @@
+    1  mkdir test1
+    2  cd test1/
+    3  vim Dockerfile
+    4  cat Dockerfile 
+    5  vim  index.html
+    6  ls
+    7  cat Dockerfile 
+    8  docker build -t newcentos:0.1 .
+    9  docker images
+   10  docker run -itd newcentos:0.1 bash
+   11  docker ps
+   12  docker exec -it 0561 bash
+   13  cat Dockerfile 
+   14  cat index.html 
+   15  cd ..
+   16  mkdir test2
+   17  cd test2
+   18  ls
+   19  vim app.py
+   20  cat app.py 
+   21  vim Dockerfile
+   22  cat Dockerfile 
+   23  cat app.py 
+   24  docker build -t mypython:1.0 .
+   25  docker images
+   26  docker run mypython:1.0
+   27  cat Dockerfile 
+   28  cat app.py 
+   29  # docker build -t mypython:1.0 .
+   30  # docker run mypython:1.0
+   31  cd ..
+   32  cat Dockerfile 
+   33  cd test2
+   34  cat Dockerfile 
+   35  cat app.py 
+   36  # docker build -t mypython:1.0 .
+   37  # docker run mypython:1.0
+   38  cd 
+   39  mkdir test3
+   40  cd test3
+   41  vim Dockerfile
+   42  cat Dockerfile 
+   43  docker build -t testimage .
+   44  docker image
+   45  docker images
+   46  docker run -itd testimage bash
+   47  docker p
+   48  docker ps
+   49  docker ps
+   50  docker exec -it ee1e bash
+   51  cat Dockerfile 
+   52  docker ps
+   53  cat Dockerfile 
+   54  # docker build -t testimage .
+   55  #docker run -itd testimage bash
+   56  docker images
+   57  history
+   58  cat https://github.com/manishsonawane1998/docker-history.git
+   59  git clone https://github.com/manishsonawane1998/docker-history.git
+   60  ls
+   61  rm docker-history/
+   62  rm docker-history/ -f
+   63  ls
+   64  cd
+   65  git clone https://github.com/manishsonawane1998/docker-history.git
+   66  ls
+   67  mv test1 docker-history/
+   68  mv test2 docker-history/
+   69  mv test3 docker-history/
+   70  ls
+   71  history > todays
