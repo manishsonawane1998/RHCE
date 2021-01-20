@@ -1,0 +1,8 @@
+FROM centos:7
+RUN useradd user1
+RUN echo "redhat" | passwd user1 --stdin
+USER user1
+WORKDIR /home/user1
+RUN mkdir myfold
+WORKDIR /home/user1/myfold
+RUN touch abc
